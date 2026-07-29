@@ -1,0 +1,25 @@
+/*-- scss:defaults --*/
+$primary-color: #006c66;
+$body-bg: white;
+$body-color: black;
+$link-color: $primary-color;
+$link-color-hover: $primary-color;
+$selection-color: $primary-color;
+
+/*-- scss:rules --*/
+.reveal {
+    .footer {
+        color: $primary-color;
+    }
+
+    .slide-number {
+        color: $primary-color;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: $primary-color !important;
+}

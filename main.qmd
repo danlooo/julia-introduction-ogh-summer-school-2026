@@ -11,12 +11,11 @@ author:
   - name: Maarten Pronk
 format:
   revealjs:
-    theme: simple
+    theme: [simple, main.scss]
     transition: slide
     slide-number: true
     width: 1280
     height: 720
-    css: main.css
     footer: "Daniel Loos: Introduction to Julia"
 execute:
   echo: true
@@ -110,6 +109,23 @@ You'll see the Julia REPL:
 julia> println("Hello world")
 Hello world
 ```
+
+## Tips for Beginners
+
+1. **Use the REPL** - Interactive and fast feedback
+2. **Use `?` for help** - Type `?function_name` in REPL
+3. **1-indexed arrays** - First element is `[1]`, not `[0]`
+4. **Use `!` convention** - Functions ending in `!` modify arguments
+5. **Multiple dispatch** - Julia's superpower!
+6. **Use packages** - Don't reinvent the wheel
+
+## Resources
+
+- **Official docs**: https://docs.julialang.org
+- **Discourse**: https://discourse.julialang.org
+- **GitHub**: https://github.com/JuliaLang/julia
+- **Learn X in Y**: https://learnxinyminutes.com/docs/julia/
+- **YouTube**: https://www.youtube.com/@doggodotjl
 
 ## Variables
 
@@ -598,23 +614,6 @@ end
 check_positive(5)
 ```
 
-## Tips for Beginners
-
-1. **Use the REPL** - Interactive and fast feedback
-2. **Use `?` for help** - Type `?function_name` in REPL
-3. **1-indexed arrays** - First element is `[1]`, not `[0]`
-4. **Use `!` convention** - Functions ending in `!` modify arguments
-5. **Multiple dispatch** - Julia's superpower!
-6. **Use packages** - Don't reinvent the wheel
-
-## Resources
-
-- **Official docs**: https://docs.julialang.org
-- **Learn X in Y**: https://learnxinyminutes.com/docs/julia/
-- **Julia Academy**: https://juliaacademy.com
-- **Discourse**: https://discourse.julialang.org
-- **GitHub**: https://github.com/JuliaLang/julia
-- **YouTube**: https://www.youtube.com/@doggodotjl
 
 ## Community: JuliaCon Global
 
