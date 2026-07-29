@@ -82,6 +82,16 @@ is_cool = true
 - Type inferred automatically
 - Variable names are case-sensitive
 
+## Unicode
+
+Julia supports emojis which is essential in writing mathematical formulas:
+
+```{julia}
+👍=1
+👎=-1
+👍 + 👎
+```
+
 
 ## Basic Types
 
