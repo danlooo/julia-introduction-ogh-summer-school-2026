@@ -34,6 +34,9 @@ https://www.jdoodle.com/online-compiler-julia
 
 ## Who is Julia?
 
+::::: {.columns}
+
+::: {.column width="60%"}
 - High-performance programming language
 - Designed for scientific computing
 - Easy to learn, fast to run
@@ -41,10 +44,17 @@ https://www.jdoodle.com/online-compiler-julia
 - Speed approaching C
 - Great for data science, math, and more
 - Multi-paradigm: Functional, procedural, typed
+:::
+
+::: {.column width="40%"}
+![](assets/Julia_prog_language.svg.png)
+:::
+
+:::::
 
 ## Why Julia?
 
-- **Fast**: JIT compilation, near-C performance
+- **Fast**: Just-in-time compilation, near-C performance
 - **Easy**: Clean syntax, readable code
 - **Dynamic**: Interactive REPL, flexible types
 - **Ecosystem getting richer**: 10,000+ packages
@@ -289,6 +299,40 @@ We start counting by 1 and not 0 in Julia:
 ```{julia}
 #| output: text
 arr[1:2]
+```
+
+## Broadcasting
+
+Apply a function e.g. to every element of an array:
+
+```{julia}
+[1, 2, 3] .* 2
+```
+
+Repeat it over other dimensions:
+
+```{julia}
+[1 2 3; 4 5 6] .* [2 2 2]
+```
+
+
+## Broadcasting Performance
+
+This is faster than `map` by doing it at compile time:
+
+```{julia}
+a = 1:10000000
+@time a .* 2
+```
+
+```{julia}
+@time map(x -> x * 2, a)
+```
+
+while giving same results:
+
+```{julia}
+all(map(x -> x * 2, a) .== a .* 2)
 ```
 
 ## Dictionaries
@@ -554,18 +598,12 @@ plot([1, 2, 3], color="red", width=2)
 ```{julia}
 #| output: text
 #| eval: false
-# Enter package mode (press ] in REPL)
-# pkg> add Plots
-# pkg> add DataFrames
 
-# Or use Pkg module
 using Pkg
-# Pkg.add("Plots")
-
-# Load package
-# using Plots
-# using DataFrames
+Pkg.add("DataFrames")
 ```
+
+Browse packages online: https://juliapackages.com
 
 ## Useful Packages
 
@@ -614,6 +652,39 @@ end
 check_positive(5)
 ```
 
+## Macros
+
+Macros can modify code before compilliation:
+
+```{julia}
+macro sayhello()
+    return :(println("Hello, world!"))
+end
+@sayhello()
+```
+
+- Similar to Pythons decorators, but not only for functions
+- Often used to automatically write repetetive code
+- Also used to temporarily modify code e.g. `@benchmark`
+
+## Metaprogramming
+
+Lisp-like macros and other metaprogramming facilities. Julia represents its own code as a data structure of the language itself. This enables macros, but in the end *anything* you can think of. We've used it to generate thousands of lines of code that would normally have to be handwritten. It's really programming your programming.
+
+```{julia}
+# Everything's a string first
+prog = "1 + 1"
+ex1 = Meta.parse(prog)
+println("$(typeof(ex1)) $ex1")
+
+# An expression has a head and args
+println(ex1.head)
+println(ex1.args)
+
+# You can create this yourself as well
+ex2 = Expr(:call, :+, 1, 1)
+ex2 == ex1
+```
 
 ## Community: JuliaCon Global
 
