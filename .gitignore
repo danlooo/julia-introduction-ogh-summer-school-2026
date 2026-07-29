@@ -1,0 +1,41 @@
+# Quarto outputs
+*.html
+*.pdf
+*.docx
+*.pptx
+*.epub
+*.md
+!README.md
+!main.qmd
+
+# Quarto directories
+_site/
+freeze/
+.freeze/
+_quarto/
+*.quarto
+main_files/
+
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Julia
+*.jl.cov
+*.jl.*.cov
+.jl_coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+output.txt
