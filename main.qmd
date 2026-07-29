@@ -22,6 +22,17 @@ execute:
   echo: true
 ---
 
+## Access
+
+#### These Slides
+
+https://danlooo.github.io/julia-introduction-ogh-summer-school-2026
+![](assets/slides-link-qr.png)
+
+#### Julia Terminal
+
+https://www.jdoodle.com/online-compiler-julia
+
 ## Who is Julia?
 
 - High-performance programming language
@@ -57,6 +68,18 @@ This makes it complicated to write and debug.
 :::
 
 :::::
+
+## Julia Benchmarks
+
+https://github.com/kadyb/raster-benchmark
+
+![](assets/raster-benchmark.png)
+
+## Julia Benchmarks
+
+https://github.com/kadyb/vector-benchmark
+
+![](assets/vector-benchmark.png)
 
 ## Getting Started
 
