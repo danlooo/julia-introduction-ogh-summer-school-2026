@@ -39,6 +39,25 @@ execute:
 - **Dynamic**: Interactive REPL, flexible types
 - **Ecosystem getting richer**: 10,000+ packages
 
+## The Two Language Problem
+
+::::: {.columns}
+
+::: {.column width="60%"}
+Usually, one needs two languages
+
+- One to prototype: Python, R
+- Another one to make it fast: C++, Fortran
+
+This makes it complicated to write and debug.
+:::
+
+::: {.column width="40%"}
+![](assets/python-car.jpg)
+:::
+
+:::::
+
 ## Getting Started
 
 Install Julia:
