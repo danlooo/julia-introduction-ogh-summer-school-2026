@@ -59,6 +59,7 @@ https://www.jdoodle.com/online-compiler-julia
 - **Dynamic**: Interactive REPL, flexible types
 - **Ecosystem getting richer**: 10,000+ packages
 
+
 ## The Two Language Problem
 
 ::::: {.columns}
@@ -89,6 +90,34 @@ https://github.com/kadyb/raster-benchmark
 https://github.com/kadyb/vector-benchmark
 
 ![](assets/vector-benchmark.png)
+
+## Just-In-Time (JIT) Compiliation
+
+::::: {.columns}
+
+::: {.column width="60%"}
+- Compiling saves time for code parsing and creating binaries
+- Compiling takes time initially
+- Compiling is very uncommon in interactive terminals
+- Just-In-Time (JIT) compiler for Julia allows interactive commands
+
+:::
+
+::: {.column width="40%"}
+![](assets/compiling.png)
+https://xkcd.com/303
+:::
+
+:::::
+
+## Julia Compiler: Yet Another LLVM Language
+
+Like C, C++, GO, Rust, ..., the default compiler for Julia uses LLVM infrastructure. 
+
+![](assets/llvm.png)
+
+On that low level, all those languages were the same.
+
 
 ## Getting Started
 
@@ -315,6 +344,7 @@ Repeat it over other dimensions:
 [1 2 3; 4 5 6] .* [2 2 2]
 ```
 
+This is similar to R: `c(1,2,3) * 2`
 
 ## Broadcasting Performance
 
@@ -685,6 +715,64 @@ println(ex1.args)
 ex2 = Expr(:call, :+, 1, 1)
 ex2 == ex1
 ```
+
+## Parallel Computing
+
+The core interpreter in R is single-threaded, but Julia offers multi-threading by by default.
+Show number of threads:
+
+```{julia}
+Threads.nthreads()
+```
+
+This allows us to run multiple tasks in parallel while working on *shared memory*.
+In multi-processing, however, one needs to copy the runtime in memory multiple times.
+
+## Multithreading
+
+Executing a `for` loop in parallel (unsafe):
+
+```julia
+total = 0
+Threads.@threads for i in 1:1000
+    global total += 1
+end
+```
+
+### Thread Safety
+
+Concurrent reads are fine but we need to ensure that there is max 1 write at once.
+
+```{julia}
+total = 0
+total_lock = ReentrantLock()
+Threads.@threads for i in 1:1000
+    lock(total_lock) do
+        global total += 1
+    end
+end
+total
+```
+
+## Multiprocessing
+
+- Multiprocessing is running multiple Julia instances without sharing memory.
+- Those are running independently, even on different machines
+
+```julia
+using Distributed
+using SharedArrays
+
+addprocs(1)
+a = SharedArray(zeros(10))
+
+@distributed for i = 1:10
+    a[i] = i
+end
+
+rmprocs(workers())
+```
+
 
 ## Community: JuliaCon Global
 
