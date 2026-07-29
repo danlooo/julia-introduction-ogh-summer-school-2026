@@ -24,11 +24,11 @@ jobs:
 
             - uses: actions/configure-pages@v5
 
-            - run: quarto render main.qmd --to revealjs -o _site
+            - run: quarto render main.qmd --to revealjs -o index.html
 
             - uses: actions/upload-pages-artifact@v3
               with:
-                  path: ./_site
+                  path: .
 
     deploy:
         needs: build
