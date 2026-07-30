@@ -57,8 +57,6 @@ https://www.jdoodle.com/online-compiler-julia
 - **Fast**: Just-in-time compilation, near-C performance
 - **Easy**: Clean syntax, readable code
 - **Dynamic**: Interactive REPL, flexible types
-- **Ecosystem getting richer**: 10,000+ packages
-
 
 ## The Two Language Problem
 
@@ -91,7 +89,7 @@ https://github.com/kadyb/vector-benchmark
 
 ![](assets/vector-benchmark.png)
 
-## Just-In-Time (JIT) Compiliation
+## Just-In-Time (JIT) Compilation
 
 ::::: {.columns}
 
@@ -288,7 +286,7 @@ push!(numbers, 6)
 numbers
 ```
 
-Matricies and other tensors:
+Matrices and other tensors:
 
 ```{julia}
 rand(3, 4)
@@ -684,7 +682,7 @@ check_positive(5)
 
 ## Macros
 
-Macros can modify code before compilliation:
+Macros can modify code before compilation:
 
 ```{julia}
 macro sayhello()
@@ -694,7 +692,7 @@ end
 ```
 
 - Similar to Pythons decorators, but not only for functions
-- Often used to automatically write repetetive code
+- Often used to automatically write repetitive code
 - Also used to temporarily modify code e.g. `@benchmark`
 
 ## Metaprogramming
