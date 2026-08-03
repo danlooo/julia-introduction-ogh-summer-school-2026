@@ -147,14 +147,33 @@ julia> println("Hello world")
 Hello world
 ```
 
-## Tips for Beginners
+## Getting Help
 
-1. **Use the REPL** - Interactive and fast feedback
-2. **Use `?` for help** - Type `?function_name` in REPL
-3. **1-indexed arrays** - First element is `[1]`, not `[0]`
-4. **Use `!` convention** - Functions ending in `!` modify arguments
-5. **Multiple dispatch** - Julia's superpower!
-6. **Use packages** - Don't reinvent the wheel
+Type e.g. `?println` and press enter to see help page of the function:
+
+```
+help?> println
+search: println print sprint pointer printstyled
+
+  println([io::IO], xs...)
+
+  Print (using print) xs to io followed by a newline. If io is not supplied, prints to the default output stream stdout.
+
+  See also printstyled to add colors etc.
+
+  Examples
+  ≡≡≡≡≡≡≡≡
+
+  julia> println("Hello, world")
+  Hello, world
+  
+  julia> io = IOBuffer();
+  
+  julia> println(io, "Hello", ',', " world.")
+  
+  julia> String(take!(io))
+  "Hello, world.\n"
+```
 
 ## Resources
 
