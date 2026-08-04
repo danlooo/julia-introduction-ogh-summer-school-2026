@@ -94,10 +94,10 @@ https://github.com/kadyb/vector-benchmark
 ::::: {.columns}
 
 ::: {.column width="60%"}
-- Compiling saves time for code parsing and creating binaries
-- Compiling takes time initially
+- Compiling: faster execution (cache binary creation) but slower start up
 - Compiling is very uncommon in interactive terminals
-- Just-In-Time (JIT) compiler for Julia allows interactive commands
+- GCC compiles on every file change
+- Julia JIT compiles on statement change, e.g. just needs to re-compile the `if` block
 
 :::
 
